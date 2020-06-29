@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+  <main class="signup bg-light">
+    <div class="container">
+      <h1 class="pt-5"><center>Sign Up</center></h1>
+      <hr />
+      <div class="container">
+                 {% if error %}
+                 {{ error }}
+                 <br />
+                 {% endif %}
+                   <form method="POST" action="{% url 'signup' %}"class="register-form" id="register-form">
+                     {% csrf_token %}
+                     <div class="row justify-content-center align-items-center">
+                       Name:
+                       &nbsp;
+                           <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                           <input type="text" name="name" id="name" placeholder="Your Name"/>
+                           &nbsp;
+                       Email:
+                       &nbsp;
+                           <label for="email"><i class="zmdi zmdi-email"></i></label>
+                           <input type="email" name="email" id="email" placeholder="Your Email"/>
+                      </div>
+                      <br />
+                      <div class="row justify-content-center align-items-center">
+                       Password:
+                       &nbsp;
+                           <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                           <input type="password" name="pass" id="pass" placeholder="Password"/>
+                           &nbsp;
+                       Confirm Password:
+                       &nbsp;
+                           <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                           <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
+                       </div>
+                       <br />
+                       <div class="row justify-content-center align-items-center">
+                           <input class="btn btn-primary" type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                       </div>
+                       <br />
+                   </form>
+           </div>
+       </div>
+       <br />
+       <br />
+       <br />
+       <br />
+       <br />
+       <br />
+       <br />
+       <br />
+   </main>
+{% endblock %}
