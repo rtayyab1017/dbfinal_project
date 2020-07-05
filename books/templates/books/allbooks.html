@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<main role="main">
+  <div class="breadcrumb">
+          <div class="container">
+              <a class="breadcrumb-item" href="{% url 'home' %}">Home</a>
+              <a class="breadcrumb-item" href="{% url 'shop' %}">Library</a>
+              <span class="breadcrumb-item active">Book</span>
+          </div>
+      </div>
+      <section class="recomended-sec">
+            <div class="container">
+                <div class="title">
+                    <h2 class="text-center">All Books</h2>
+                    <hr>
+                </div>
+                <div class="row">
+                {%  for item in libraryitem1.all %}
+                <div class="col-lg-3 col-md-6">
+                    <div class="item">
+                        <img src="{{ item.Image.url }}" alt="img" height=200 width=200>
+                        <p>{{ item.title }}</p>
+                        <h6><span class="price">{{ item.pub_name }}</span> / <a href="#">Get Now</a></h6>
+                        <div class="hover">
+                            <a href="{{item.library_Id}}">
+                            <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                </div>
+                <br />
+              </div>
+              <br />
+{% endblock %}

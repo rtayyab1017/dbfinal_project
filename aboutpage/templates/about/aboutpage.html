@@ -1,30 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
-      <section class="about-sec bg-light">
-          <div class="container">
-            <h1 class="pt-5"><center>About Us</center></h1>
-            <hr />
-            <div class="container">
-              <div class="row justify-content-center align-items-center">
-                <div>
-                  <h3 class="sub pb-20">Institute of Electronics And Electrical Engineers - UET Lahore</h3>
-                  <p class="pb-20">
-                    The IEEE Student Branch at UET, Lahore was established in 1982 and regularly arranges technical activities and workshop to help student in their professional growth.The branch members learn valuable technical, management, communication and leadership skill by arranging a variety of events.
-                  </p>
-                  <h4>Vision</h4>
-                  <p>
-                    The student branch is committed to provide excellent opportunities of professional development for the students of UET to help grow their technical, and professional skills. That is to say, that apart from gaining the usual technological knowledge, special consideration is given to the professional nourishment of the members, by making them arrange events and manage projects, both technical and non-technical. .
-                    To formalize the process, the IEEE, student branch has also laid foundation of a number of committees to facilitate the branch administration and its operation.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-        </section>
+<div class="breadcrumb">
+    <div class="container">
+        <a class="breadcrumb-item" href="{% url 'home' %}">Home</a>
+        <span class="breadcrumb-item active">About</span>
+    </div>
+</div>
+<section class="static about-sec">
+    <div class="container">
+      <h1 class="pt-5"><center>About Us</center></h1>
+        <hr />
+        <div>
+          <h4>Institute of Electronics And Electrical Engineers - UET Lahore</h4>
+          <p>
+            The IEEE Student Branch at UET, Lahore was established in 1982 and regularly arranges technical activities and workshop to help student in their professional growth.The branch members learn valuable technical, management, communication and leadership skill by arranging a variety of events.
+          </p>
+          <h4>IEEE SIGHT Library & its Vision</h4>
+          <p>
+            We all are not from the same backgrounds. Some are with deep pockets and can afford new books for each semester while others cannot.  On the other side, the books that the students currently have, might be of no use for them after their on-going semester ends. IEEE SIGHT Library provides a platform to help those who need the books. Students can donate their old books to SIGHT Library where their complete record will be kept. These books will be issued for one semester to the juniors, who will be obliged to return them back to SIGHT Library after the end of semester and the cycle will continue.
+            The vision of SIGHT Library is to provide some ease to the students who are facing any financial barrier in buying their study related stuff (books, notes, etc.). In university, students have to buy new books in every semester. SIGHT Library is a non-profit project that aims at helping those students by providing them books for a semester without any charges.
+          </p>
+        </div>
+</section>
 
 {% endblock %}

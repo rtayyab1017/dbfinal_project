@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% static "images" as baseUrl %}
+{% block content %}
+
+<div class="breadcrumb">
+    <div class="container">
+        <a class="breadcrumb-item" href="{% url 'home' %}">Home</a>
+        <span class="breadcrumb-item active">{{product.title}}</span>
+    </div>
+</div>
+<section class="product-sec">
+        <div class="container">
+            <h1>{{product.title}}</h1>
+            <div class="row">
+                <div class="col-md-6 slider-sec">
+                    <!-- main slider carousel -->
+                    <div id="myCarousel" class="carousel slide">
+                        <!-- main slider carousel items -->
+                        <div class="carousel-inner">
+                            <div class="active item carousel-item" data-slide-number="0">
+                                <img src="{{product.Image.url}}" class="img-fluid">
+                            </div>
+
+                        </div>
+                        <!-- main slider carousel nav controls -->
+
+                    </div>
+                    <!--/main slider carousel-->
+                </div>
+                <div class="col-md-6 slider-content">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and Scrambled it to make a type and typesetting industry. Lorem Ipsum has been the book. </p>
+                    <p>t has survived not only fiveLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and</p>
+                    <ul>
+                        <li>
+                            <span class="name">Publisher:{{product.pub_name}} </span>
+                        </li>
+
+                    </ul>
+                    <div class="btn-sec">
+                      <a href="{{product.library_Id}}/addtocart" class="btn ">Add To cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

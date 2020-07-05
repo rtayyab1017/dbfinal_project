@@ -1,47 +1,39 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-  <main class="signup bg-light">
-    <section>
-      <div class="container">
-        <h1 class="pt-5"><center>Login</center></h1>
-        <hr />
-        <div class="container">
-                   {% if error %}
-                   {{ error }}
-                   <br />
-                   {% endif %}
-                     <form method="POST" action="{% url 'login' %}" class="login-form" id="login-form">
-                       {% csrf_token %}
-                       <div class="row justify-content-center align-items-center">
-                         Email:
-                             <label for="email"><i class="zmdi zmdi-email"></i></label>
-                             &nbsp;
-                             <input type="email" name="email" id="email" placeholder="Your Email"/>
-                         &nbsp;
-                         Password:
-                             <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                             &nbsp;
-                             <input type="password" name="password" id="password" placeholder="Password"/>
-                          </div>
-                         <br />
-                         <div class="row justify-content-center align-items-center">
-                             <input class="btn btn-primary btn-center" type="submit" name="login" id="login" class="form-submit" value="Login"/>
-                        </div>
-                     </form>
-             </div>
-         </div>
-    </section>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-   </main>
+<div class="breadcrumb">
+    <div class="container">
+        <a class="breadcrumb-item" href="{% url 'home' %}">Home</a>
+        <span class="breadcrumb-item active">Login</span>
+    </div>
+</div>
+<section class="static about-sec">
+    <div class="container">
+        <h1>My Account / Login</h1>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fiveLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem </p>
+        {% if error %}
+        {{ error }}
+        <br />
+        {% endif %}
+        <div class="form">
+            <form action="login" method="POST">
+              {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-5">
+                        <input type="email" name="email" id="email" placeholder="Your Email" required />
+                        <span class="required-star">*</span>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="password" name="password" id="password" placeholder="Password" required />
+                        <span class="required-star">*</span>
+                    </div>
+                    <div class="col-lg-8 col-md-12">
+                        <button type="submit" class="btn black"" href="{% url 'home' %}">Login</button>
+                        <h5>not Registered? <a href="{% url 'signup' %}">Register here</a></h5>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
 {% endblock %}

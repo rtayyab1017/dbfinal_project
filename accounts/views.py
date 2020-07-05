@@ -1,36 +1,34 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
-from django.contrib import auth
+from django.contrib.auth.models import User, auth
 
 # Create your views here.
 def signup(request):
     if request.method == 'POST':
         if  request.POST['pass'] == request.POST['re_pass']:
-            try:
-                user = User.objects.get(email=request.POST['email'])
-                return render(request,'accounts/signup.html', {'error': 'Email has already been registred!!'})
-            except User.DoesNotExist:
-                user = User.objects.create_user(request.POST['email'], password = request.POST['pass'])
-                auth.login(request,user)
-                return redirect('home')
+            if User.objects.filter(username=request.POST['email']).exists():
+                return render(request, 'accounts/signup.html', {'error': 'Email already exists'})
+                return redirect('signup')
+            else:
+                user = User.objects.create_user(username=request.POST['email'], password = request.POST['pass'],first_name=request.POST['first_name'],last_name= request.POST['last_name'])
+                user.save()
+                return redirect('login')
         else:
-            return render(request,'accounts/signup.html', {'error': 'Password does not match'})
+            return render(request, 'accounts/signup.html', {'error': 'Password are not Matching'})
     else:
-        return render(request, 'accounts/signup.html', {'signup': signup})
+        return render(request, 'accounts/signup.html')
 
 
 def login(request):
     if request.method == 'POST':
-        user1 = auth.authenticate(email=request.POST['email'], password = request.POST['password'])
+        user = auth.authenticate(username=request.POST['email'], password = request.POST['password'])
         if user is not None:
             auth.login(request, user)
             return redirect('home')
         else:
-            return render(request, 'accounts/login.html', {'error': 'Email or Password is wrong'})
+            return render(request, 'accounts/login.html', {'error': 'Invalid Credentials'})
     else:
         return render(request, 'accounts/login.html')
 
 def logout(request):
-    if request.method == 'POST':
         auth.logout(request)
         return redirect('home')

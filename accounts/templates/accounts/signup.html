@@ -1,54 +1,54 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-  <main class="signup bg-light">
+<div class="breadcrumb">
     <div class="container">
-      <h1 class="pt-5"><center>Sign Up</center></h1>
-      <hr />
-      <div class="container">
-                 {% if error %}
-                 {{ error }}
-                 <br />
-                 {% endif %}
-                   <form method="POST" action="{% url 'signup' %}"class="register-form" id="register-form">
-                     {% csrf_token %}
-                     <div class="row justify-content-center align-items-center">
-                       Name:
-                       &nbsp;
-                           <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                           <input type="text" name="name" id="name" placeholder="Your Name"/>
-                           &nbsp;
-                       Email:
-                       &nbsp;
-                           <label for="email"><i class="zmdi zmdi-email"></i></label>
-                           <input type="email" name="email" id="email" placeholder="Your Email"/>
-                      </div>
-                      <br />
-                      <div class="row justify-content-center align-items-center">
-                       Password:
-                       &nbsp;
-                           <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                           <input type="password" name="pass" id="pass" placeholder="Password"/>
-                           &nbsp;
-                       Confirm Password:
-                       &nbsp;
-                           <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                           <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
-                       </div>
-                       <br />
-                       <div class="row justify-content-center align-items-center">
-                           <input class="btn btn-primary" type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
-                       </div>
-                       <br />
-                   </form>
-           </div>
-       </div>
-       <br />
-       <br />
-       <br />
-       <br />
-       <br />
-       <br />
-       <br />
-       <br />
-   </main>
+        <a class="breadcrumb-item" href="{% url 'home' %}">Home</a>
+        <span class="breadcrumb-item active">Register</span>
+    </div>
+</div>
+<section class="static about-sec">
+    <div class="container">
+        <h1>My Account / Register</h1>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fiveLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem </p>
+        {% if error %}
+        {{ error }}
+        <br />
+        {% endif %}
+        <div class="form">
+            <form action="signup" method="POST">
+              {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="text" name="first_name" placeholder="First Name" required />
+                        <span class="required-star">*</span>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" name="last_name" placeholder="Last Name" required />
+                        <span class="required-star">*</span>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="email" name="email" placeholder="Your Email" required />
+                        <span class="required-star">*</span>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="password" name="pass" placeholder="Password" required />
+                        <span class="required-star">*</span>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="password" name="re_pass" placeholder="Confirm Password" required />
+                        <span class="required-star">*</span>
+                    </div>
+                    <div class="col-lg-8 col-md-12">
+                        <button type="submit" class="btn black" href="{% url 'home' %}">Register</button>
+                        <h5>Already Registered? <a href="{% url 'login' %}">Login here</a></h5>
+                    </div>
+                </div>
+            </form>
+            <div>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}
