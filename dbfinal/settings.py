@@ -87,7 +87,7 @@ DATABASES = {
         'NAME': 'library',
         'USER': 'SightAdmin',
         'PASSWORD': 'Ve$7U*aAcG?@J_wa5b^DsM9',
-        'HOST': '127.0.0.1',
+        'HOST': 'localhost',
         'PORT': '3306',
     }
 }
