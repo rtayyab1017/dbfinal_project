@@ -10,23 +10,47 @@ sliplist=[]
 # Create your views here.
 @login_required(login_url='login')
 def books(request):
-    libraryitem = library_item.objects
-    return render(request, 'books/books.html', {'libraryitem': libraryitem})
+    book = []
+    jour = []
+    mag = []
+    libraryitem = library_item.objects.all()
+    for item in libraryitem:
+        if book_collection.objects.filter(pk=item.library_Id):
+            book.append(item)
+    for item in libraryitem:
+        if journal.objects.filter(pk=item.library_Id):
+            jour.append(item)
+    for item in libraryitem:
+        if magazine.objects.filter(pk=item.library_Id):
+            mag.append(item)
+    return render(request, 'books/books.html', {'libraryitem': book, 'libraryitem1': jour, 'libraryitem2': mag})
 
 @login_required(login_url='login')
 def allbooks(request):
-    libraryitem1 = library_item.objects
-    return render(request, 'books/allbooks.html', {'libraryitem1': libraryitem1})
+    book = []
+    libraryitem = library_item.objects.all()
+    for item in libraryitem:
+        if book_collection.objects.filter(pk=item.library_Id):
+            book.append(item)
+    return render(request, 'books/allbooks.html', {'libraryitem': book})
 
 @login_required(login_url='login')
 def alljournals(request):
-    libraryitem2 = library_item.objects
-    return render(request, 'books/alljournals.html', {'libraryitem2': libraryitem2})
+    jour = []
+    libraryitem = library_item.objects.all()
+    for item in libraryitem:
+        if journal.objects.filter(pk=item.library_Id):
+            jour.append(item)
+    return render(request, 'books/alljournals.html', {'libraryitem': jour})
 
 @login_required(login_url='login')
 def allmagazines(request):
-    libraryitem3 = library_item.objects
-    return render(request, 'books/allmagazines.html', {'libraryitem3': libraryitem3})
+    mag = []
+    libraryitem = library_item.objects.all()
+    for item in libraryitem:
+        if magazine.objects.filter(pk=item.library_Id):
+            mag.append(item)
+    return render(request, 'books/allmagazines.html', {'libraryitem': mag})
 
 
 @login_required(login_url='login')
