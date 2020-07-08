@@ -85,7 +85,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'library',
-        'USER': 'SightAdmin',
+        'USER': 'root',
         'PASSWORD': 'Ve$7U*aAcG?@J_wa5b^DsM9',
         'HOST': '127.0.0.1',
         'PORT': '3306',
