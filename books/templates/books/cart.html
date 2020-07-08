@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
+{% static "images" as baseUrl %}
 {% block content %}
+
+
 
 <div class="breadcrumb">
     <div class="container">
@@ -9,51 +12,49 @@
     </div>
 </div>
 
-		<div class="container-fluid breadcrumbBox text-center">
-			<ol class="breadcrumb">
-
-				<li class="active"><a href="#">Order</a></li>
-
-			</ol>
-		</div>
-
-		<div class="container text-center">
-
-			<div class="col-md-5 col-sm-12">
-				<div class="bigcart"></div>
-				<h1>Your shopping cart</h1>
-				<p>
-					This is a free and <b><a href="http://tutorialzine.com/2014/04/responsive-shopping-cart-layout-twitter-bootstrap-3/" title="Read the article!">responsive shopping cart layout, made by Tutorialzine</a></b>. It looks nice on both desktop and mobile browsers. Try it by resizing your window (or opening it on your smartphone and pc).
-				</p>
-			</div>
-
-			<div class="col-md-7 col-sm-12 text-left">
-
-				<ul>
-					<li class="row list-inline columnCaptions">
-						<span>ITEM</span>
-						<span>Price</span>
-					</li>
+    <div class="container">
+        <h2> Your cart</h2>
+      <br />
+      <div class="col-md-7 col-sm-12 text-left">
 
 
-					{%for item in cartitems%}
-					<li class="row">
-						<span class="itemName">{{item.title}}</span>
-						<span class="popbtn"><a class="arrow"></a></span>
-						<span class="price">{{item.pub_name}}</span>
-					</li>
-					{% endfor %}
+        <ul class="list-group mb-3">
+            {%for item in cartitems%}
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                    <h6 class="my-0">{{item.title}}</h6>
+                    <small class="text-muted">{{item.pub_name}}</small>
+                  </div>
+                  <span class="images">Free </span>
 
-				</ul>
-			</div>
+                  <div class="col-4">
+                   <a href="{{item.library_Id}}/removeitem" class="btn black">REMOVE</a>
+                   </div>
+                </li>
 
-		</div>
 
-		<!-- The popover content -->
+            {% endfor %}
+            <br />
+            <a class="btn btn-primary btn-lg btn-block" href= "{% url 'checkout' %}">Checkout</a>
+        </ul>
+        {% for item in notavailable %}
+        <h2>{{heading}}</h2>
+        <p>{{item.title}}</p>
+        <br />
+        {% endfor %}
 
-		<div id="popover" style="display: none">
-			<a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
-			<a href="#"><span class="glyphicon glyphicon-remove"></span></a>
-		 </div>
+      </div>
+
+
+    </div>
+
+    <!-- The popover content -->
+
+    <div id="popover" style="display: none">
+      <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
+      <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
+     </div>
+
+
 
 {% endblock %}

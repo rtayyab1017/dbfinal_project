@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
+from books.models import PersonExtend
 
 # Create your views here.
 def signup(request):
@@ -10,6 +11,8 @@ def signup(request):
                 return redirect('signup')
             else:
                 user = User.objects.create_user(username=request.POST['email'], password = request.POST['pass'],first_name=request.POST['first_name'],last_name= request.POST['last_name'])
+                newperson = PersonExtend(user=user,checkoutdate=default,returndate=default)
+                newperson.save()
                 user.save()
                 return redirect('login')
         else:

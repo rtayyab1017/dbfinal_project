@@ -10,7 +10,6 @@
 <section class="static about-sec">
     <div class="container">
         <h1>My Account / Register</h1>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fiveLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem </p>
         {% if error %}
         {{ error }}
         <br />
@@ -39,7 +38,7 @@
                         <input type="password" name="re_pass" placeholder="Confirm Password" required />
                         <span class="required-star">*</span>
                     </div>
-                    <div class="col-lg-8 col-md-12">
+                      <div class="col-lg-8 col-md-12">
                         <button type="submit" class="btn black" href="{% url 'home' %}">Register</button>
                         <h5>Already Registered? <a href="{% url 'login' %}">Login here</a></h5>
                     </div>

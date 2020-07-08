@@ -29,16 +29,17 @@
                     <!--/main slider carousel-->
                 </div>
                 <div class="col-md-6 slider-content">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and Scrambled it to make a type and typesetting industry. Lorem Ipsum has been the book. </p>
-                    <p>t has survived not only fiveLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and</p>
                     <ul>
                         <li>
-                            <span class="name">Publisher:{{product.pub_name}} </span>
+                            <h6 class="name"><b>Available Copies:</b>{{product.copies}}</h6>
+                            <br />
+                            <h6 class="name"><b>Publisher:</b>{{product.pub_name}} </h6>
                         </li>
 
                     </ul>
                     <div class="btn-sec">
-                      <a href="{{product.library_Id}}/addtocart" class="btn ">Add To cart</a>
+                      <a href="{{product.pdf.url}}" class="btn">Get PDF</a>
+                      <a href="{{product.library_Id}}/addtocart" class="btn black">Add To cart</a>
                     </div>
                 </div>
             </div>

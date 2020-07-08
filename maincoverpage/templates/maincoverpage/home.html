@@ -13,7 +13,7 @@
                         <div class="title">
                             <h3>Welcome to Sight Library</h3>
                             <h5>Discover the best books, journals & magazines online with us</h5>
-                            <a href="{% url 'books' %}" class="btn">Discover Them</a>
+                            <a href="{% url 'shop' %}" class="btn">Discover Them</a>
                             <br />
                             <br />
                             <br />
@@ -65,11 +65,11 @@
     </div>
     <div class="about-content">
         <h2>About SIGHT Library</h2>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and Scrambled it to make a type and typesetting industry. Lorem Ipsum has been the book. </p>
-        <p>It has survived not only fiveLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and</p>
+        <p>Students can donate their old books to SIGHT Library where their complete record will be kept. These books will be issued for one semester to the juniors, who will be obliged to return them back to SIGHT Library after the end of semester.</p>
+        <p>The vision of SIGHT Library is to provide some ease to the students who are facing any financial barrier in buying their study related stuff. In university, students have to buy new books in every semester. SIGHT Library is a non-profit project that aims at helping those students by providing them books for a semester without any charges.</p>
         <div class="btn-sec">
             <a href="{% url 'aboutpage' %}" class="btn yellow">Know more</a>
-            <a href="{% url 'books' %}" class="btn black">Shop Books</a>
+            <a href="{% url 'shop' %}" class="btn black">Go to Library</a>
         </div>
     </div>
 </section>
@@ -80,24 +80,21 @@
                 <span class="icon"><img src="{% static 'images/icon.svg' %}" height = 40 alt="logo"></span>
                 <h3>Enjoy Books</h3>
                 <h5>Easy Books Availability</h5>
-                <h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's...</h6>
             </li>
             <li>
                 <span class="icon return"><img src="{% static 'images/icon return.png' %}" height = 40 alt="logo"><i class="fa fa-reply-all" aria-hidden="true"></i></span>
                 <h3>Semester Return</h3>
                 <h5>Moneyback guarantee</h5>
-                <h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's...</h6>
             </li>
             <li>
                 <span class="icon chat"><img src="{% static 'images/icon chat.png' %}" height = 40 alt="logo"></span>
                 <h3>24/7 Support</h3>
                 <h5>Online Consultations</h5>
-                <h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's...</h6>
             </li>
         </ul>
     </div>
 </section>
-<section class="offers-sec" style="background:url(images/offers.jpg)no-repeat;">
+<section class="offers-sec" style="background:url({% static 'images/offers.jpg' %})no-repeat;">
     <div class="cover"></div>
     <div class="container">
         <div class="row">
@@ -106,7 +103,7 @@
                     <h3>Top 50% OFF on Selected</h3>
                     <h6>We are now offering some good discount
                 on selected books go and shop them</h6>
-                    <a href="products.html" class="btn blue-btn">view all books</a>
+                    <a href="{% url 'books' %}" class="btn blue-btn">view all books</a>
                     <span class="icon-point percentage">
                         <img src="{% static 'images/precentagae.png' %}" alt="">
                     </span>
@@ -117,8 +114,8 @@
                     <h3>Shop $ 500 Above and Get Extra!</h3>
                     <h6>We are now offering some good discount
                 on selected books go and shop them</h6>
-                    <a href="products.html" class="btn blue-btn">view all books</a>
-                    <span class="icon-point amount"><img src="% static 'images/amount.png' %}" alt=""></span>
+                    <a href="{% url 'books' %}" class="btn blue-btn">view all books</a>
+                    <span class="icon-point amount"><img src="{% static 'images/amount.png' %}" alt=""></span>
                 </div>
             </div>
         </div>
@@ -128,31 +125,27 @@
     <div class="container">
         <div id="testimonal" class="owl-carousel owl-theme">
             <div class="item">
-                <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and Scrambled it to make a type and typesetting industry. been the book</h3>
+                <h3>Team IEEE UET has been working very hard with consistency to advance the technology for humanity. They have done unmatched hardwork to bridge the gap between the industry and academia. They are gems who can do anything assigned to them, which is helping UET to achieve its vision.
+								</h3>
                 <div class="box-user">
-                    <h4 class="author">Susane Mathew</h4>
-                    <span class="country">Australia</span>
+                    <h4 class="author">Dr. KM Hassan</h4>
+                    <span class="country">Staff Advisor and Chairman EE Department, UET Lahore</span>
                 </div>
             </div>
             <div class="item">
-                <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and Scrambled it to make a type and typesetting industry. been the book</h3>
+                <h3>To serve humanity, there is a technical society name as "IEEE UET Lahore". It promotes humanitarian activities in IEEE Lahore Section and IEEE Region 10. It engages the students, graduates and professionals in activities like IEEE APES [Won 5000 USD Grant from IEEE PES HQ USA] at national and international levels as well. <!-- Their work is absolutely commendable. Their act of assistance to humanity has favoured the community and nation at large.-->
+								</h3>
                 <div class="box-user">
-                    <h4 class="author">Susane Mathew</h4>
-                    <span class="country">Australia</span>
+                    <h4 class="author">Mr. Salman Fakhar</h4>
+                    <span class="country">Branch Counselor IEEE UET</span>
                 </div>
             </div>
             <div class="item">
-                <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and Scrambled it to make a type and typesetting industry. been the book</h3>
+                <h3>A team full of passion and fortitude to serve humanity through technology named "IEEE UET Lahore" is role model technical society in promoting Technical, Research and Humanitarian activities in IEEE Lahore Section and IEEE Region 10. I personally felt team; mature, responsible, effective and hardworking team, who spend their valuable stint in engaging students, graduates and professionals in value added activities. <!--like IEEE APES [Won 5000 USD Grant from IEEE PES HQ USA] and National and International Competitions of IEEE etc.-->
+								</h3>
                 <div class="box-user">
-                    <h4 class="author">Susane Mathew</h4>
-                    <span class="country">Australia</span>
-                </div>
-            </div>
-            <div class="item">
-                <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and Scrambled it to make a type and typesetting industry. been the book</h3>
-                <div class="box-user">
-                    <h4 class="author">Susane Mathew</h4>
-                    <span class="country">Australia</span>
+                    <h4 class="author">Mr. Usman Munawar</h4>
+                    <span class="country">General Secretary IEEE Lahore Section (2016 - 18)</span>
                 </div>
             </div>
         </div>

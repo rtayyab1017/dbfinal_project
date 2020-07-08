@@ -47,7 +47,7 @@
           </div>
       <div class="row">
       {%  for item in libraryitem.all %}
-      {% if forloop.counter >= 52 %}
+      {% if forloop.counter <= 8 %}
       <div class="col-lg-3 col-md-6">
           <div class="item">
               <img src="{{ item.Image.url }}" alt="img" height=200 width=200>
@@ -67,6 +67,36 @@
     <br />
     <div class="btn-sec">
 <a href="{% url 'journals' %}" class="btn gray-btn">View all Journal Article</a>
+</div>
+</section>
+<section class="recomended-sec">
+      <div class="container">
+          <div class="title">
+              <h2 class="text-center">Magazine</h2>
+              <hr>
+          </div>
+      <div class="row">
+      {%  for item in libraryitem.all %}
+      {% if forloop.counter <= 4 %}
+      <div class="col-lg-3 col-md-6">
+          <div class="item">
+              <img src="{{ item.Image.url }}" alt="img" height=200 width=200>
+              <p>{{ item.title }}</p>
+              <h6><span>2020</span> / <a href="#">Get Now</a></h6>
+              <div class="hover">
+                  <a href="{{item.library_Id}}">
+                  <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+                  </a>
+              </div>
+          </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      </div>
+    </div>
+    <br />
+    <div class="btn-sec">
+<a href="{% url 'magazines' %}" class="btn gray-btn">View all Magazines</a>
 </div>
 </section>
 
