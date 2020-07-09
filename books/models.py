@@ -21,12 +21,12 @@ class magazine(models.Model):
 
 class journal(models.Model):
     journal_Id = models.OneToOneField('library_item', on_delete=models.CASCADE, primary_key = True)
-    volume = models.IntegerField()
-    journal_number = models.IntegerField()
+    volume = models.IntegerField(null='True')
+    journal_number = models.IntegerField(null='True')
 
 class book_collection(models.Model):
     book_Id = models.OneToOneField('library_item', on_delete=models.CASCADE, primary_key = True)
-    edition = models.IntegerField()
+    edition = models.IntegerField(null='True')
     book_type = models.CharField(max_length=255)
 
 class author(models.Model):
@@ -41,14 +41,7 @@ class Publisher(models.Model):
     def __str__(self):
         return self.name
 
-def return_date_time():
-    now = timezone.now()
-    return now + timedelta(days=120)
-
-
 class PersonExtend(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,primary_key='True')
     blacklisted=models.BooleanField(default='False')
     fine=models.IntegerField(null='True')
-    checkoutdate = models.DateField(default=timezone.now)
-    returndate = models.DateField(default=return_date_time)

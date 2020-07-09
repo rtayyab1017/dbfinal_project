@@ -31,11 +31,10 @@
                    <a href="{{item.library_Id}}/removeitem" class="btn black">REMOVE</a>
                    </div>
                 </li>
-
-
             {% endfor %}
-            <br />
+            <br />{% if cartitems %}
             <a class="btn btn-primary btn-lg btn-block" href= "{% url 'checkout' %}">Checkout</a>
+            {% endif %}
         </ul>
         {% for item in notavailable %}
         <h2>{{heading}}</h2>

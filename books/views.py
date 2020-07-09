@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
+from django.utils import timezone
+from datetime import timedelta
 from django.contrib.auth.decorators import login_required
 from .models import library_item,magazine,journal,book_collection,author,Publisher,PersonExtend
 
@@ -99,6 +101,8 @@ def search(request):
 @login_required(login_url='login')
 def checkout(request):
     personinfo = PersonExtend.objects.filter(user= request.user)
+    checkoutdate = timezone.now()
+    returndate = timezone.now() + timedelta(days=120)
     noitems=[]
     heading='ITEMS NOT AVAILABLE'
 
@@ -106,13 +110,16 @@ def checkout(request):
         zerocopy = library_item.objects.get(library_Id=item)
         if zerocopy.copies==0:
         	noitems.append(zerocopy)
+        cart_items.remove(zerocopy.library_Id)
 
     for a in cartlist:
         for b in noitems:
             if a==b:
                 cartlist.remove(a)
-    sliplist=cartlist
+
+    sliplist=cartlist.copy()
     if noitems:
     	return render(request, 'cart.html', {'notavailable': noitems, 'heading' : heading, 'cartitems':cartlist})
-
-    return render(request,'Slip.html',{'sliplist': sliplist, 'personinfo': personinfo})
+    cartlist.clear()
+    cart_items.clear()
+    return render(request,'Slip.html',{'sliplist': sliplist, 'personinfo': personinfo, 'checkoutdate': checkoutdate, 'returndate': returndate})

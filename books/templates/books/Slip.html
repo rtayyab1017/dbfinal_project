@@ -12,15 +12,15 @@
     <tr>
       <td><i><b>Username:</b>{{user.username}}</i></td>
       <td></td>
-      <td><i><b>Checkout Date:</b>{{person.checkoutdate}}</i></td>
+      <td><i><b>Checkout Date:</b>{{checkoutdate}}</i></td>
       <td></td>
-      <td><i><b>Return Date:</b>{{person.returndate}}</i></td>
+      <td><i><b>Return Date:</b>{{returndate}}</i></td>
     </tr>
   </table>
   {% endfor %}
   <br />
   <ul class="list-group mb-3">
-      {%for item in sliplist%}
+      {% for item in sliplist %}
           <li class="list-group-item d-flex justify-content-between lh-condensed">
             <div>
               <h6 class="my-0">{{item.title}}</h6>
