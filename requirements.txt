@@ -1,6 +1,15 @@
+certifi==2020.6.20
+chardet==3.0.4
 Django==2.1.5
+grep==0.3.2
 gunicorn==20.0.4
+heroku==0.1.4
+idna==2.10
 mysql-connector==2.2.9
 mysqlclient==1.4.6
 Pillow==7.1.2
+psycopg2-binary==2.8.5
+python-dateutil==1.5
 pytz==2020.1
+requests==2.24.0
+urllib3==1.25.9
