@@ -83,12 +83,12 @@ WSGI_APPLICATION = 'dbfinal.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'library',
-        'USER': 'SightAdmin',
-        'PASSWORD': 'Ve$7U*aAcG?@J_wa5b^DsM9',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'USER': 'libraryuser',
+        'PASSWORD': 'TaLaT123',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
