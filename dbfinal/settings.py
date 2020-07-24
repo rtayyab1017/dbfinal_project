@@ -87,7 +87,7 @@ DATABASES = {
         'NAME': 'librarydb',
         'USER': 'ieeeuetsight',
         'PASSWORD': 'Sight123',
-        'HOST': 'localhost',
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
