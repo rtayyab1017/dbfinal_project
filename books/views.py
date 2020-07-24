@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.utils import timezone
 from datetime import timedelta
+from django.db.models import F
 from django.contrib.auth.decorators import login_required
 from .models import library_item,magazine,journal,book_collection,author,Publisher,PersonExtend
 
@@ -115,11 +116,13 @@ def checkout(request):
     for a in cartlist:
         for b in noitems:
             if a==b:
-                cartlist.remove(a)
+                cartlist.remove(a)           
 
     sliplist=cartlist.copy()
     if noitems:
     	return render(request, 'cart.html', {'notavailable': noitems, 'heading' : heading, 'cartitems':cartlist})
+    for item in sliplist:
+        library_item.objects.filter(library_Id=item.library_Id).update(copies=F('copies')-1)
     cartlist.clear()
     cart_items.clear()
     return render(request,'Slip.html',{'sliplist': sliplist, 'personinfo': personinfo, 'checkoutdate': checkoutdate, 'returndate': returndate})

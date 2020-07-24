@@ -5,6 +5,12 @@ from books.models import PersonExtend
 # Create your views here.
 def signup(request):
     if request.method == 'POST':
+        if len(request.POST['pass']) < 8:
+            return render(request, 'accounts/signup.html', {'error': 'Password is too Short'})
+        if request.POST['pass'].isdigit():
+            return render(request, 'accounts/signup.html', {'error': 'Password contains all numbers'})
+        if request.POST['pass'].lower().strip() in request.POST['pass']:
+            return render(request, 'accounts/signup.html', {'error': 'Weak Password'})
         if  request.POST['pass'] == request.POST['re_pass']:
             if User.objects.filter(username=request.POST['email']).exists():
                 return render(request, 'accounts/signup.html', {'error': 'Email already exists'})

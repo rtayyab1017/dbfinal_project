@@ -16,8 +16,8 @@ class library_item(models.Model):
 
 class magazine(models.Model):
     magazine_Id = models.OneToOneField('library_item', on_delete=models.CASCADE, primary_key = True)
-    publish_date = models.DateField()
-    mag_type = models.CharField(max_length=255)
+    publish_date = models.DateField(null='True')
+    mag_type = models.CharField(max_length=255, null='True')
 
 class journal(models.Model):
     journal_Id = models.OneToOneField('library_item', on_delete=models.CASCADE, primary_key = True)

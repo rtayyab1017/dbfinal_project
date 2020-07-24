@@ -22,7 +22,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'jhkw^t-ldvo$u^-d9f76e-ej*@9ppr=2xla#md_#y*vh%g5e-!'
 #SECRET_KEY = os.environ.get('SECRET_KEY')
-#SECRET_KEY = 'fc14b25e07a382a953cbf24942bdd698714f9bbe62ce8dad'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -85,9 +84,9 @@ WSGI_APPLICATION = 'dbfinal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'library',
-        'USER': 'libraryuser',
-        'PASSWORD': 'TaLaT123',
+        'NAME': 'librarydb',
+        'USER': 'ieeeuetsight',
+        'PASSWORD': 'Sight123',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -118,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Karachi'
 
 USE_I18N = True
 
@@ -142,8 +141,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-
-try:
-    from local_settings import *
-except ImportError:
-    pass
