@@ -24,9 +24,9 @@ SECRET_KEY = 'jhkw^t-ldvo$u^-d9f76e-ej*@9ppr=2xla#md_#y*vh%g5e-!'
 #SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ieeeuetsightlibrary.sumamazaeem.com']
 
 
 # Application definition
