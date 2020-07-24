@@ -26,7 +26,7 @@ SECRET_KEY = 'jhkw^t-ldvo$u^-d9f76e-ej*@9ppr=2xla#md_#y*vh%g5e-!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['ieeeuetsightlibrary.sumamazaeem.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -83,11 +83,11 @@ WSGI_APPLICATION = 'dbfinal.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'librarydb',
         'USER': 'ieeeuetsight',
         'PASSWORD': 'Sight123',
-        'HOST': '127.0.0.1',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
