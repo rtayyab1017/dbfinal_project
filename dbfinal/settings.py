@@ -74,7 +74,7 @@ TEMPLATES = [
         },
     },
 ]
-
+#areyouready
 WSGI_APPLICATION = 'dbfinal.wsgi.application'
 
 
